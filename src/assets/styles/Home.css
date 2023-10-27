@@ -1,0 +1,132 @@
+.home-main {
+  display: flex;
+}
+
+.sidebar {
+  height: calc(100vh - 25px);
+  background-color: rgba(0, 0, 0, 0.381);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+.sidebarIcon {
+  opacity: 0.6;
+  margin: 10px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: 0.2s;
+  color: #ffffff80;
+}
+.sidebarProfile {
+  padding: 30px 30px 0 0;
+  border-radius: 20%;
+  background: #00000080;
+  background-image: url("../media/member_placeholder.webp");
+  background-size: cover;
+  background-repeat: none;
+  image-rendering: pixelated;
+}
+
+.sidebarIcon:hover {
+  opacity: 1;
+  transform: scale(1.05);
+  box-shadow: 0 0 32px #00000090;
+}
+
+.sidebarProfile:hover::after {
+  transform: scale(1.1);
+}
+
+.home-container {
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 10px;
+  min-width: calc(100% - 74px);
+  justify-content: space-between;
+  & h1 {
+    margin: 0;
+    font-family: "Satoshi-Black", system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+      "Helvetica Neue", sans-serif;
+  }
+}
+.modules-list {
+  display: grid;
+  gap: 10px;
+  min-width: 270px;
+}
+.module-container {
+  background-color: rgba(0, 0, 0, 0.089);
+  border-radius: 4px;
+  padding: 10px;
+  box-sizing: border-box;
+  transition: all 0.2s;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.186);
+  }
+}
+.news-container {
+  background-color: rgba(0, 0, 0, 0.089);
+  padding: 10px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  min-width: calc(100% - 290px);
+  transition: all 0.2s;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.186);
+  }
+}
+
+.module-option {
+  background-color: rgba(0, 0, 0, 0.089);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.186);
+  }
+  &:active {
+    transform: scale(0.95);
+    background-color: rgba(101, 18, 146, 0.186);
+  }
+}
+.module-option-list {
+  display: grid;
+  gap: 10px;
+  overflow: auto;
+  max-height: 60vh;
+}
+
+.module-text {
+  display: flex;
+  gap: 5px;
+  padding: 5px;
+  & img {
+    max-width: 30px;
+    height: 30px;
+    border-radius: 2px;
+  }
+  & span {
+    font-family: "Satoshi-Light";
+  }
+  & p {
+    font-family: "Minecraft";
+  }
+}
+.settings-container {
+  padding: 0px 10px 0px 10px;
+  box-sizing: border-box;
+  min-width: calc(100% - 74px);
+}
+.h1-1 {
+  font-family: "Satoshi-Light", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  color: #ffffff80;
+  font-size: medium;
+}
