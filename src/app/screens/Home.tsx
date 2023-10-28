@@ -228,7 +228,7 @@ function Home() {
         unmountOnExit
       >
         <div className="settings-container">
-          <h1>Ajustes Generales</h1>
+          <h1 className="h1-1">Ajustes Generales</h1>
         </div>
       </CSSTransition>
       <CSSTransition
@@ -238,7 +238,7 @@ function Home() {
         unmountOnExit
       >
         <div className="home-container">
-          <h1 className="h1-1">Usuarios</h1>
+          <h1 className="h1-1">Usuario</h1>
         </div>
       </CSSTransition>
     </div>

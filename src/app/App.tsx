@@ -2,6 +2,7 @@ import { useState } from "react";
 import UpdateElectron from "@/components/update";
 import { ipcRenderer } from "electron";
 import Home from "./screens/Home";
+import logo from "../../build/icon.png"
 import "../assets/styles/App.css";
 import "../assets/styles/satoshi.css"
 
@@ -24,7 +25,7 @@ function App() {
     <div>
       <div className="bar">
         <div style={{marginLeft:"10px", display: "flex", gap:"5px"}}>
-          <img src={`https://adeptus-team.web.app/assets/logo_small-90d5f2b2.png`}/>
+          <img src={logo}/>
         <span className="centered-text-main">Neutron Studio</span>
         </div>
         <div className="button-container">
