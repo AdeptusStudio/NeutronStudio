@@ -83,7 +83,7 @@ cd neutronstudio
 npm install
 
 # Inicia la aplicación
-npm start
+npm run dev
 ```
 
 ## 💡 Colaboración
