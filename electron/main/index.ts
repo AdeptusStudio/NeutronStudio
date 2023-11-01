@@ -110,6 +110,12 @@ app.on("activate", () => {
 // New window example arg: new windows url
 ipcMain.handle("open-win", (_, arg) => {
   const childWindow = new BrowserWindow({
+    title: "Neutron Studio",
+    icon: join(process.env.VITE_PUBLIC, "favicon.ico"),
+    titleBarStyle: 'hidden',
+    autoHideMenuBar: true,
+    minWidth: 850,
+    minHeight: 550,
     webPreferences: {
       preload,
       nodeIntegration: true,
@@ -118,13 +124,32 @@ ipcMain.handle("open-win", (_, arg) => {
   });
 
   if (process.env.VITE_DEV_SERVER_URL) {
-    childWindow.loadURL(`${url}#${arg}`);
+    childWindow.loadURL(`${url}${arg}`);
   } else {
     childWindow.loadFile(indexHtml, { hash: arg });
   }
 });
-ipcMain.on('close-window', (evt, arg) => {
-  win.close();
+
+ipcMain.handle("open-alt-win", (_, arg, title) => {
+  const altWindow = new BrowserWindow({
+    title: `Neutron Studio - ${title}`,
+    icon: join(process.env.VITE_PUBLIC, "favicon.ico"),
+    titleBarStyle: 'hidden',
+    autoHideMenuBar: true,
+    minWidth: 850,
+    minHeight: 550,
+    webPreferences: {
+      preload,
+      nodeIntegration: true,
+      contextIsolation: false,
+    },
+  });
+
+  if (process.env.VITE_DEV_SERVER_URL) {
+    altWindow.loadURL(arg);
+  } else {
+    altWindow.loadFile(indexHtml, { hash: arg });
+  }
 });
 
 ipcMain.on('minimize-window', (evt, arg) => {

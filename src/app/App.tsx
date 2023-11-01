@@ -1,47 +1,24 @@
 import { useState } from "react";
-import UpdateElectron from "@/components/update";
 import { ipcRenderer } from "electron";
+import Tab from "@/components/Tab";
 import Home from "./screens/Home";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import logo from "../../build/icon.png"
 import "../assets/styles/App.css";
 import "../assets/styles/satoshi.css"
-
-console.log(
-  "[App.tsx]",
-  `Hello world from Electron ${process.versions.electron}!`
-);
+import PentestingHome from "./screens/PentestingHome";
+import WorkspaceHome from "./screens/WorkspaceHome";
 
 function App() {
-  function closeButton() {
-    ipcRenderer.send("close-window");
-  }
-  function minimizeButton() {
-    ipcRenderer.send("minimize-window");
-  }
-  function maximizeButton() {
-    ipcRenderer.send("maximize-window");
-  }
   return (
     <div>
-      <div className="bar">
-        <div style={{marginLeft:"10px", display: "flex", gap:"5px"}}>
-          <img src={logo}/>
-        <span className="centered-text-main">Neutron Studio</span>
-        </div>
-        <div className="button-container">
-          <UpdateElectron/>
-          <button className="minimize" onClick={minimizeButton}>
-            &#xE921;
-          </button>
-          <button className="minimize" onClick={maximizeButton}>
-            
-          </button>
-          <button className="close" id="close" onClick={closeButton}>
-            &#xE8BB;
-          </button>
-        </div>
-      </div>
-      <Home />
+      <Router>
+        <Routes>
+          <Route path='/' Component={Home}/>
+          <Route path='/pentesting' Component={PentestingHome}/>
+          <Route path='/workspace' Component={WorkspaceHome}/>
+        </Routes>
+      </Router>
     </div>
   );
 }

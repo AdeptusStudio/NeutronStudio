@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
+import { IpcRenderer, ipcRenderer } from "electron";
+import { Outlet, Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import Sidebar from "../../components/Home/Sidebar";
 import "../../assets/styles/Home.css";
@@ -49,17 +51,13 @@ function Home() {
       setIsUserVisible(true);
     }, 300);
   };
-  const contenedorRef = useRef(null);
+  function PentestingWindow() {
+    ipcRenderer.invoke("open-win", "pentesting");
+  }
+  function WorkspaceWindow() {
+    ipcRenderer.invoke("open-win", "workspace");
+  }
 
-  const scrollStep = 100; // Cantidad de desplazamiento en píxeles
-
-  const scrollDerecha = () => {
-    contenedorRef.current.scrollLeft += scrollStep;
-  };
-
-  const scrollIzquierda = () => {
-    contenedorRef.current.scrollLeft -= scrollStep;
-  };
   return (
     <div className="home-main">
       <Sidebar
@@ -93,7 +91,7 @@ function Home() {
                     </span>
                   </div>
                 </div>
-                <div className="module-option">
+                <div className="module-option" onClick={WorkspaceWindow}>
                   <div className="module-text">
                     <img src={workspacelogo} />
                     <p style={{ textAlign: "center", margin: "0" }}>
@@ -108,7 +106,7 @@ function Home() {
                     </span>
                   </div>
                 </div>
-                <div className="module-option">
+                <div className="module-option" onClick={PentestingWindow}>
                   <div className="module-text">
                     <img src={pentestinglogo} />
                     <p style={{ textAlign: "center", margin: "0" }}>
@@ -186,7 +184,7 @@ function Home() {
                       <circle cx="50" cy="50" r="45" fill="rgb(170, 69, 206)" />
                       <path
                         stroke="#fff"
-                        stroke-width="8"
+                        strokeWidth="8"
                         d="M20 50h60M50 20v60"
                       />
                     </svg>
