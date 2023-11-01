@@ -168,9 +168,13 @@ DiscordRPC.register(clientId);
 async function setActivity() {
   if (!RPC) return;
   RPC.setActivity({
-    details: `1.0.0 alpha`,
-    state: `Working on `,
+    details: `1.0.0 Release`,
+    state: `Working`,
     startTimestamp: Date.now(),
+    largeImageKey: "icon",
+    largeImageText: "Neutron Workspace Studio",
+    smallImageKey: "adeptusteam",
+    smallImageText: "AdeptusTeam",
     instance: false,
     buttons: [
       {
