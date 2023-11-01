@@ -14,9 +14,9 @@
     target: ["dmg", "zip"],
   },
   win: {
+    icon: "./build/icon.ico",
     target: [
       {
-        icon: "./build/icon.ico",
         target: "nsis",
         arch: ["x64", "ia32"],
       },
