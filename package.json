@@ -15,6 +15,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build && electron-builder",
+    "build-lnx": "tsc && vite build && electron-builder build --linux",
+    "build-mac": "tsc && vite build && electron-builder build --mac",
     "preview": "vite preview",
     "pree2e": "vite build --mode=test",
     "e2e": "playwright test"
