@@ -52,10 +52,10 @@ function Home() {
     }, 300);
   };
   function PentestingWindow() {
-    ipcRenderer.invoke("open-win", "pentesting");
+    ipcRenderer.invoke("open-win", "#pentesting");
   }
   function WorkspaceWindow() {
-    ipcRenderer.invoke("open-win", "workspace");
+    ipcRenderer.invoke("open-win", "#workspace");
   }
 
   return (
